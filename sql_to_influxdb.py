@@ -200,7 +200,7 @@ def format_body_slack():
     print(jsonbody)
     jsonbody['text'] = '环境: {},   时间: {} \n'.format('Dev: stg1s' if debug == 'True' else 'Prd: prd1s', datetime.now())
 
-    jsonbody['text'] += 'DB总数统计完了，戳此链接看详情: http://your_web_server:3000/d/oH0sXEvGk/reposhu-liang-jian-kong?orgId=1&refresh=1d'
+    jsonbody['text'] += 'DB总数统计完了，戳此链接看详情: http://your_grafana_server:3000/d/oH0sXEvGk/reposhu-liang-jian-kong?orgId=1&refresh=1d'
     log.logger.info('formating result send to slack, result: {} '.format(jsonbody))
     return json.dumps(jsonbody)
 

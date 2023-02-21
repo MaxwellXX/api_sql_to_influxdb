@@ -1,0 +1,307 @@
+---
+# agg geo2
+layer: test_buildings
+url: /layers/test_buildings/_search
+method: POST
+step: agg by geo2
+base_assertion_only: false
+base_assertion_path: # 验证的路径
+  - hits
+  - total
+data: # 请求体
+  search: null
+  filter:
+    geo3_id: []
+    house_status:
+      - open
+      - remodelling
+    tst_sku: []
+    house_group: []
+    open_date:
+      - null
+      - null
+    metrics_club_exists: null
+    tst_lsku: []
+    family_sku:
+      has_any: []
+      min_has: 0
+      lack_any: []
+      min_lack: 0
+      combine: and
+    category_building:
+      - Retail Building
+      - Apartment Building
+      - Office Building
+      - Hotel Building
+    category_positioning: []
+    category_special: []
+    future: true
+    total_area:
+      - null
+      - null
+    has_ifp: null
+    has_wsa: null
+    coordinate: []
+    tst_ranking: []
+    bbox: []
+  coord_sys: gww
+  only_vcl: true
+  offset: 0
+  sort: null
+  limit: 50
+  aggs: geo2
+---
+# geohash_precision 4
+layer: test_demographic
+url: /layers/test_demographic/_search
+method: POST
+step: geohash_precision 4
+base_assertion_only: false
+base_assertion_path:
+  - root
+data:
+  filter:
+    geo3_id: []
+    bbox:
+      - -180
+      - 5.815186520737413
+      - 180
+      - 45.906999205953696
+  columns:
+    - nt_pop
+    - dt_pop
+    - nt_ai
+    - dt_ai
+    - pop_delta
+  coord_sys: gcj02
+  aggs: null
+  geohash_precision: 4
+---
+# geohash_precision 4
+layer: test_demographic_v2
+url: /layers/v2/test_demographic/_search
+method: POST
+step: geohash_precision 4
+base_assertion_only: false
+base_assertion_path:
+  - root
+data:
+  filter:
+    geo3_id: []
+    bbox:
+      - -180
+      - 5.815186520737413
+      - 180
+      - 45.906999205953696
+  columns:
+    - nt_pop
+    - dt_pop
+    - nt_ai
+    - dt_ai
+    - pop_delta
+  coord_sys: gcj02
+  aggs: null
+  geohash_precision: 4
+---
+# agg geo2
+layer: test_icl_pois
+url: /layers/test_icl_pois/_search
+method: POST
+step: agg by geo2
+base_assertion_only: false
+base_assertion_path:
+  - hits
+  - total
+data:
+  search: null
+  filter:
+    geo3_id: []
+    icl_status:
+      - open
+      - planned
+      - construction
+      - potential
+    tst_sku: []
+    tst_category: []
+    tst_format: []
+    bbox: []
+  coord_sys: gww
+  offset: 0
+  sort: null
+  size: 50
+  aggs: geo2
+---
+# agg geo2
+layer: test_icl_public_transports
+url: /layers/test_icl_public_transports/_search
+method: POST
+step: agg by geo2
+base_assertion_only: false
+base_assertion_path:
+  - hits
+  - total
+data:
+  search: null
+  filter:
+    geo3_id: []
+    icl_status:
+      - open
+      - planned
+      - construction
+      - potential
+    tst_sku: []
+    tst_category: []
+    tst_format: []
+    bbox: []
+  coord_sys: gww
+  offset: 0
+  sort: null
+  size: 50
+  aggs: geo2
+---
+# agg geo2
+layer: test_rating_clusters
+url: /layers/test_rating_clusters/_search
+method: POST
+step: agg by geo2
+base_assertion_only: false
+base_assertion_path:
+  - hits
+  - total
+data:
+  search: null
+  filter:
+    geo3_id: []
+    tst_ranking:
+      - 'Pace'
+      - 'Luxury Pace'
+      - 'F&B Pace'
+      - 'Youth Pace'
+      - 'Office Pace'
+      - 'District Face'
+      - 'Community Face'
+      - 'F&B'
+      - Office
+      - 'Future To Watch'
+      - Tourist
+      - NIL
+    fs_circulation: []
+    fs_complemental: []
+    fs_basic_points:
+      - null
+      - null
+    fs_total_points:
+      - null
+      - null
+    fs_num_stores:
+      - null
+      - null
+    bbox: null
+  coord_sys: gww
+  offset: 0
+  sort: null
+  size: 50
+  aggs: geo2
+---
+# agg geo2
+layer: test_stores
+url: /layers/test_stores/_search
+method: POST
+step: agg by geo2
+base_assertion_only: False
+base_assertion_path:
+  - hits
+  - total
+data:
+  search: null
+  filter:
+    geo3_id: []
+    tst_category: []
+    tst_sku: []
+    house_group: []
+    house_identifier: []
+    display_status:
+      - open
+      - planned
+      - remodelling
+    family_certificate:
+      - 0
+      - 1
+    is_in_venue: null
+    coordinate: []
+    family_type:
+      - 0
+      - 4
+    bbox: []
+  coord_sys: gww
+  offset: 0
+  sort: null
+  size: 50
+  aggs: geo2
+---
+# agg geo2
+layer: test_venues
+url: /layers/test_venues/_search
+method: POST
+step: agg by geo2
+base_assertion_only: false
+base_assertion_path:
+  - hits
+  - total
+data:
+  search: null
+  filter:
+    geo3_id: []
+    house_status:
+      - open
+      - remodelling
+    tst_sku: []
+    house_group: []
+    open_date:
+      - null
+      - null
+    metrics_club_exists: null
+    tst_lsku: []
+    family_sku:
+      has_any: []
+      min_has: 0
+      lack_any: []
+      min_lack: 0
+      combine: and
+    category_building:
+      - Mall
+      - Department Store
+      - Hypermarket
+    category_positioning: []
+    category_special: []
+    future: true
+    total_area:
+      - null
+      - null
+    has_ifp: null
+    has_wsa: null
+    coordinate: []
+    display: all_venues
+    display_ranking:
+      - Pace
+      - Luxury Pace
+      - F&B Pace
+      - Lifestyle Pace
+      - Youth Pace
+      - District Face
+      - Community Face
+      - F&B Community
+      - Future To Watch
+      - Future To Watch
+      - '#2 in Dest. Cluster'
+      - '#3 in Dest. Cluster'
+      - '#4 Street Side'
+      - Rankings-Parent
+      - NIL
+    bbox: []
+  coord_sys: gww
+  only_vcl: true
+  offset: 0
+  sort: null
+  limit: 50
+  aggs: geo2
